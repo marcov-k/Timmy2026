@@ -1,0 +1,26 @@
+{
+    "fileName": "MalfunctionBoardNT.json",
+    "name": "MalfunctionBoard NetworkTables API",
+    "version": "0.4.20",
+    "frcYear": "2026",
+    "uuid": "18db258b-d419-42ca-a7c9-20aa82c7fb61",
+    "mavenUrls": [
+        "https://raw.githubusercontent.com/marcov-k/MalfunctionBoard/main/publish-repo",
+        "https://frcmaven.wpi.edu/artifactory/release/"
+    ],
+    "jsonUrl": "https://raw.githubusercontent.com/marcov-k/MalfunctionBoard/main/wpilib-nt/MalfunctionBoardNT.json",
+    "javaDependencies": [
+        {
+            "groupId": "com.malfunctionz.malfunctionboard",
+            "artifactId": "malfunctionboard-nt",
+            "version": "0.4.20"
+        },
+        {
+            "groupId": "com.google.code.gson",
+            "artifactId": "gson",
+            "version": "2.11.0"
+        }
+    ],
+    "jniDependencies": [],
+    "cppDependencies": []
+}
