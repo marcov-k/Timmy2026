@@ -20,7 +20,6 @@ public class DriveSubsystem extends SubsystemBase
 
     public DriveSubsystem()
     {
-        /*
         frontLeftMotor = new SparkMax(Constants.DriveConstants.kFrontLeftMotorID, MotorType.kBrushless);
         frontRightMotor = new SparkMax(Constants.DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
         backRightMotor = new SparkMax(Constants.DriveConstants.kBackRightMotorID, MotorType.kBrushless);
@@ -30,7 +29,6 @@ public class DriveSubsystem extends SubsystemBase
         backLeftMotor.configure(Constants.DriveConstants.kLeftMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         frontRightMotor.configure(Constants.DriveConstants.kRightMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         backRightMotor.configure(Constants.DriveConstants.kRightMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        */
     }
 
     public void drive(double forward, double steer)
@@ -46,7 +44,10 @@ public class DriveSubsystem extends SubsystemBase
         leftThrottle *= speed;
         rightThrottle *= speed;
 
-        System.out.println("Left motor throttle: " + leftThrottle);
-        System.out.println("Right motor throttle: " + rightThrottle);
+        frontLeftMotor.set(leftThrottle);
+        backLeftMotor.set(leftThrottle);
+        
+        frontRightMotor.set(rightThrottle);
+        backRightMotor.set(rightThrottle);
     }
 }
