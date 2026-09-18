@@ -7,12 +7,16 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 
+import frc.robot.subsystems.DriveSubsystem;
+
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
  * the TimedRobot documentation. If you change the name of this class or the package after creating
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
+    XboxController controller = new XboxController(0);
+    DriveSubsystem driveSubsystem = new DriveSubsystem();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -40,7 +44,10 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic()
+  {
+    driveSubsystem.drive(controller.getLeftY(), controller.getLeftX());
+  }
 
   /** This function is called once when the robot is disabled. */
   @Override
