@@ -6,4 +6,9 @@ public final class Utilities
     {
         return start * (1.0 - t) + end * t;
     }
+
+    public static double clamp(double x, double min, double max)
+    {
+        return Math.max(Math.min(x, max), min);
+    }
 }

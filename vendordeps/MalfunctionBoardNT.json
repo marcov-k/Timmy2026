@@ -1,7 +1,7 @@
 {
     "fileName": "MalfunctionBoardNT.json",
     "name": "MalfunctionBoard NetworkTables API",
-    "version": "0.4.20",
+    "version": "0.4.30",
     "frcYear": "2026",
     "uuid": "18db258b-d419-42ca-a7c9-20aa82c7fb61",
     "mavenUrls": [
@@ -13,7 +13,7 @@
         {
             "groupId": "com.malfunctionz.malfunctionboard",
             "artifactId": "malfunctionboard-nt",
-            "version": "0.4.20"
+            "version": "0.4.30"
         },
         {
             "groupId": "com.google.code.gson",
