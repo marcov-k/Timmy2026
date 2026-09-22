@@ -39,15 +39,15 @@ public class DriveSubsystem extends SubsystemBase
         forward = MathUtil.applyDeadband(forward, Constants.DriveConstants.kDriveDeadband);
         steer = MathUtil.applyDeadband(steer, Constants.DriveConstants.kDriveDeadband); 
 
-        double speed = Math.sqrt(forward * forward + steer * steer) * Constants.DriveConstants.kDriveSpeedLimit;
+        double speed = Math.sqrt(forward * forward + steer * steer);
         if (speed < Constants.kEpsilon)
         {
             stopAllMotors();
             return;
         }
 
-        double leftThrottle = Utilities.clamp(steer + forward, -Constants.DriveConstants.kDriveSpeedLimit, Constants.DriveConstants.kDriveSpeedLimit);
-        double rightThrottle = Utilities.clamp(-steer + forward, -Constants.DriveConstants.kDriveSpeedLimit, Constants.DriveConstants.kDriveSpeedLimit);
+        double leftThrottle = Utilities.clamp(steer - forward, -1.0, 1.0) * Constants.DriveConstants.kDriveSpeed;
+        double rightThrottle = -Utilities.clamp(-steer - forward, -1.0, 1.0) * Constants.DriveConstants.kDriveSpeed;
 
         frontLeftMotor.set(leftThrottle);
         //backLeftMotor.set(leftThrottle);

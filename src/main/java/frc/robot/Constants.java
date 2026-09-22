@@ -14,7 +14,7 @@ public final class Constants
         public static final int kBackRightMotorID = 3;
         public static final int kBackLeftMotorID = 4;
 
-        public static final double kDriveSpeedLimit = 1.0;
+        public static final double kDriveSpeed = 1.0;
         public static final double kDriveDeadband = 0.10;
 
         public static final SparkMaxConfig kLeftMotorConfig = new SparkMaxConfig();
@@ -32,7 +32,7 @@ public final class Constants
                 .smartCurrentLimit(50);
             
             kRightMotorConfig.absoluteEncoder
-                .inverted(true);
+                .inverted(false);
         }
     }
 }
