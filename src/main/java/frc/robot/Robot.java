@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic()
   {
-    driveSubsystem.drive(controller.getLeftY(), controller.getLeftX());
+    driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
   }
 
   /** This function is called once when the robot is disabled. */

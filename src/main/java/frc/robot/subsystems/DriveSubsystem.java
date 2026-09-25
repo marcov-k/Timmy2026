@@ -36,6 +36,11 @@ public class DriveSubsystem extends SubsystemBase
 
     public void drive(double forward, double steer)
     {
+        drive(forward, steer, 0.0);
+    }
+
+    public void drive(double forward, double steer, double braking)
+    {
         forward = MathUtil.applyDeadband(forward, Constants.DriveConstants.kDriveDeadband);
         steer = MathUtil.applyDeadband(steer, Constants.DriveConstants.kDriveDeadband); 
 
@@ -48,6 +53,10 @@ public class DriveSubsystem extends SubsystemBase
 
         double leftThrottle = Utilities.clamp(steer - forward, -1.0, 1.0) * Constants.DriveConstants.kDriveSpeed;
         double rightThrottle = -Utilities.clamp(-steer - forward, -1.0, 1.0) * Constants.DriveConstants.kDriveSpeed;
+
+        double brakeFactor = 1.0 - braking;
+        leftThrottle *= brakeFactor;
+        rightThrottle *= brakeFactor;
 
         frontLeftMotor.set(leftThrottle);
         //backLeftMotor.set(leftThrottle);
