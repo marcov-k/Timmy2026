@@ -47,11 +47,11 @@ public final class Constants
         public static final int kArmMotorID = 1;
 
         public static final double kMinAngle = 0.1;
-        public static final double kMaxAngle = 0.35;
+        public static final double kMaxAngle = 0.55;
         public static final double kBallAngle = 0.195;
 
-        public static final double kArmSpeed = 0.2;
-        public static final double kDecayStartAngle = 0.1;
+        public static final double kArmSpeed = 0.05;
+        public static final double kDecayStartAngle = 0.2;
 
         public static final double kArmDeadband = 0.1;
 
@@ -60,7 +60,7 @@ public final class Constants
         static
         {
             kArmMotorConfig.smartCurrentLimit(50);
-            kArmMotorConfig.inverted(false);
+            kArmMotorConfig.inverted(true);
             kArmMotorConfig.idleMode(IdleMode.kBrake);
         }
     }

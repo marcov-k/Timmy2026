@@ -9,6 +9,9 @@ import com.revrobotics.spark.SparkBase.ResetMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.math.MathUtil;
 
+import com.malfunctionz.malfunctionboard.nt.MalfunctionBoard;
+import com.malfunctionz.malfunctionboard.nt.datatypes.*;
+
 import frc.robot.Constants;
 import frc.robot.Constants.ArmConstants;
 
@@ -28,6 +31,9 @@ public class ArmSubsystem extends SubsystemBase
     public void moveArm(double input)
     {
         input = MathUtil.applyDeadband(input, ArmConstants.kArmDeadband);
+
+        MalfunctionBoard.writeData("armpos", new MBDouble(armEncoder.getPosition()));
+        MalfunctionBoard.writeData("arminput", new MBDouble(input));
 
         if (input > Constants.kEpsilon) raiseArm(input);
         else if (input < -Constants.kEpsilon) lowerArm(input);
@@ -70,12 +76,12 @@ public class ArmSubsystem extends SubsystemBase
 
         if (dist > ArmConstants.kDecayStartAngle)
         {
-            armMotor.set(-speed);
+            armMotor.set(speed);
         }
         else
         {
             speed *= (dist / ArmConstants.kDecayStartAngle);
-            armMotor.set(-speed);
+            armMotor.set(speed);
         }
     }
 }
