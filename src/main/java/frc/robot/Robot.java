@@ -18,9 +18,9 @@ import frc.robot.subsystems.GrabberSubsystem;
  */
 public class Robot extends TimedRobot {
     XboxController controller = new XboxController(0);
-    //DriveSubsystem driveSubsystem = new DriveSubsystem();
-    //ArmSubsystem armSubsystem = new ArmSubsystem();
-    GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
+    DriveSubsystem driveSubsystem = new DriveSubsystem();
+    ArmSubsystem armSubsystem = new ArmSubsystem();
+    //GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -50,13 +50,15 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic()
   {
-    //driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
-    //armSubsystem.setPosition(controller.getRightTriggerAxis());
+    driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
+    armSubsystem.moveArm(controller.getRightY());
 
+    /*
     if (controller.getRightBumperButtonPressed())
     {
         grabberSubsystem.toggle();
     }
+    */
   }
 
   /** This function is called once when the robot is disabled. */
